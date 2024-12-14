@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Register</title>
+	<!-- Mobile Specific Metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<!-- Font-->
+	<link rel="stylesheet" type="text/css" href="css/montserrat-font.css">
+	<link rel="stylesheet" type="text/css" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+	<!-- Main Style Css -->
+    <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body class="form-v10">
+	<div class="page-content">
+		<div class="form-v10-content">
+			<form class="form-detail" action="/reg" method="post" id="myform">
+				<div class="form-left">
+					<h2>General Information</h2>
+					<div class="form-group">
+						<div class="form-row form-row-1">
+							<input type="text" name="first_name" id="first_name" class="input-text" placeholder="First Name" required>
+						</div>
+						<div class="form-row form-row-2">
+							<input type="text" name="last_name" id="last_name" class="input-text" placeholder="Last Name" required>
+						</div>
+					</div>
+					<div class="form-row">
+						<select name="title">
+							<option class="option" value="SSC YEAR" disabled selected>SSC Year</option>
+						    <option class="option" value="2020">2020</option>
+						    <option class="option" value="2018">2019</option>
+						</select>
+						<span class="select-btn">
+						  	<i class="zmdi zmdi-chevron-down"></i>
+						</span>
+					</div>
+					<div class="form-row">
+						<select name="position">
+						    <option class="option" value="HSC YEAR" disabled selected>HSC Year</option>
+						    <option class="option" value="2022">2022</option>
+						    <option class="option" value="2020">2021</option>
+						</select>
+						<span class="select-btn">
+						  	<i class="zmdi zmdi-chevron-down"></i>
+						</span>
+					</div>
+					<div class="form-row">
+						<input type="text" name="company" class="company" id="company" placeholder="Registration No" required>
+					</div>
+					<div class="form-row">
+						<input type="date" name="dob" class="street" id="street" placeholder="Date of Birth" required>
+					</div>
+					<div class="form-row">
+						<select name="quota">
+						    <option class="option" value="Quota Status" disabled selected>Quota Status</option>
+						    <option class="option" value="Tribal ">Tribal</option>
+						    <option class="option" value="Freedom Fighter">Freedom Fighter</option>
+						</select>
+					</div>
+
+					<div class="form-group">
+						<div class="form-row form-row-3">
+							<select id="clg_list">
+								<option value="" disabled selected> Choose Your College List</option>	
+							</select>
+							<span class="select-btn">
+							  	<i class="zmdi zmdi-chevron-down"></i>
+							</span>
+						</div>
+					</div>
+
+				</div>
+				<div class="form-right">
+					<h2>Contact Details</h2>
+					<div class="form-group">
+						<div class="form-row form-row-1">
+							<input type="text" name="zip" class="zip" id="zip" placeholder="District Code" required>
+						</div>
+						<div class="form-row form-row-2">
+							<select name="place">
+							    <option value="Home District">Home District</option>
+							    <option value="Street">Street</option>
+							    <option value="District">District</option>
+							    <option value="City">City</option>
+							</select>
+							<span class="select-btn">
+							  	<i class="zmdi zmdi-chevron-down"></i>
+							</span>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="form-row form-row-1">
+							<input type="text" name="zip" class="zip" id="zip" placeholder="District Code" required>
+						</div>
+						<div class="form-row form-row-2">
+							<select name="place">
+							    <option value="Preferred Location">Preferred Location</option>
+							    <option value="Street">Street</option>
+							    <option value="District">District</option>
+							    <option value="City">City</option>
+							</select>
+							<span class="select-btn">
+							  	<i class="zmdi zmdi-chevron-down"></i>
+							</span>
+						</div>
+					</div>
+					<div class="form-row">
+						<select id="selected_colleges">
+							<option disabled selected>College List Selected</option>
+						</select>
+						<span class="select-btn">
+						  	<i class="zmdi zmdi-chevron-down"></i>
+						</span>
+					</div>
+					<div class="form-group">
+						<div class="form-row form-row-1">
+							<input type="text" name="code" class="code" id="code" placeholder="Code +" required>
+						</div>
+						<div class="form-row form-row-2">
+							<input type="text" name="phone" class="phone" id="phone" placeholder="Phone Number" required>
+						</div>
+					</div>
+					<div class="form-row">
+						<input type="text" name="your_email" id="your_email" class="input-text" required pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}" placeholder="Your Email">
+					</div>
+					<div class="form-checkbox">
+						<label class="container"><p>I do accept the <a href="#" class="text">Terms and Conditions</a> of your site.</p>
+						  	<input type="checkbox" name="checkbox">
+						  	<span class="checkmark"></span>
+						</label>
+					</div>
+						<div class="form-row-last">
+						<input type="submit" name="register" class="register" value="Register Now">
+						</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	
+	<script>
+		var clgList = [
+			"Dhaka Medical College",
+			"Sir Salimullah Medical College",
+			"Shaheed Suhrawardy Medical College",
+			"Rajshahi Medical College",
+			"Chittagong Medical College",
+			"Cox's Bazar Medical College",
+			"Mymensingh Medical College",
+			"Cumilla Medical College"
+		]
+
+		for (let i=0; i<clgList.length; i++) {
+			const newEl = document.createElement("option");
+			newEl.innerText = clgList[i];
+			newEl.value = clgList[i];
+			newEl.className = "clg";
+			document.getElementById("clg_list").appendChild(newEl);
+		} 
+		// var arr = [];
+		// function handleClick(){
+
+		// }
+		// var items = document.getElementsByClassName("clg");
+		// for(let i = 0; i<items.length; i++){
+		// 	var item = items[i];
+		// 	console.log(item);
+		// 	item.addEventListener('select',(event)=>{
+		// 		console.log(event.target);
+		// 		const newEl = document.createElement("option");
+		// 		newEl.innerText = event.target.innerText;
+		// 		newEl.value = event.target.value;
+		// 	    newEl.className = "sclg";
+				
+		// 		event.target.parentNode.removeChild(event.target);
+		// 		//event.stopPropagation();
+		//         document.getElementById('selected_colleges').appendChild(newEl);
+		// 	})
+		// }
+
+	    //     document.getElementById("clg_list").addEventListener('click',function(event){
+		// 	event.target.parentNode.removeChild(event.target);
+		// 	console.log(this,event.target);
+		// })
+	</script>
+</body>
+</html>
